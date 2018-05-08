@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        {% load static %}
+        <title>Logged Out</title>
+    </head>
+    <body bgcolor="#424242">
+        <h1 class='error' style="position:absolute; z-index:100; text-align:center; top:0px; right:15%; color:#cee5fa; font-family:'Courier'; font-size:1.5cm;">Logging you out...</h1>
+        <h1 class='error' style="position:absolute; z-index:100; text-align:center; top:5px; right:15.5%; color:#b0bfd1; font-family:'Courier'; font-size:1.5cm;">Logging you out...</h1>
+        <div><img class="anime-profile" src= "{% static 'img/404.jpg' %}" border="0" alt="anime" width="100%" height="100%" style="opacity:0.5;"></div>    
+        <meta http-equiv="REFRESH" content="3;URL='/'"/>
+    </body>
+</html>

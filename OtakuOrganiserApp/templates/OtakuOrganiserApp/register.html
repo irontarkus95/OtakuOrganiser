@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Registration</title>
+      {% load static %}
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+      <link rel="stylesheet" href= '{% static "css/bootstrap.min.css" %}' />
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href='{% static "assets/css/form-elements.css" %}'>
+      <link rel="stylesheet" href='{% static "assets/css/style.css" %}'>
+   </head>
+   <body style="background-image:url('https://i.imgur.com/C19ZcQA.jpg'); background-size:cover; background-position: center;">
+      <div class="top-content">
+         <div class="inner-bg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2 text">
+                     <h1><strong>Otaku Organiser</strong> Register </h1>
+                     <div class="description">
+                        <p>
+                           Welcome fellow anime lover, to Otaku Organiser! Enjoy your stay!
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3 form-box">
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p style= "color: red;">{{ error }}</p>>
+                        {% endfor %}
+                    {% endif %}
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Register:</h3>
+                           <p>Enter your username, password and email to Sign Up:</p>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-lock"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <form role="form" action="" method="POST" class="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="sr-only" for="id_username">Username</label>
+                                <input type="text" name="username" placeholder="Username..." class="form-username form-control" id="id_username">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="id_password">Password</label>
+                                <input type="password" name="password" required = "" placeholder="Password..." class="form-password form-control" id="id_password">
+                            </div>
+                            <div class="form-group">
+                                    <label class="sr-only" for="id_email">Email</label>
+                                    <input type="email" name="email" required = "" placeholder="Email..." class="form-password form-control" id="id_email">
+                                </div>
+
+                           <button type="submit" class="btn btn-success"><strong>Sign in!</strong></button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Javascript -->
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src='{% static "assets/bootstrap/js/bootstrap.min.js" %}'></script>
+      <script src='{% static "assets/js/jquery.backstretch.min.js" %}'></script>
+      <script src='{% static "assets/js/scripts.js" %}'></script>
+   </body>
+</html>
+

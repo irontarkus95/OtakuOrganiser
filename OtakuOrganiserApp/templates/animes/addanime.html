@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Otaku Organiser Add Anime Record</title>
+      {% load static %}
+      <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+      <link rel="stylesheet" href= '{% static "css/bootstrap.min.css" %}' />
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href='{% static "assets/css/form-elements.css" %}'>
+      <link rel="stylesheet" href='{% static "assets/css/style.css" %}'>
+   </head>
+   <body style="background-image:url('https://i.imgur.com/DAbclgg.png'); background-size:cover;">
+      <div class="top-content">
+         <div class="inner-bg">
+            <div class="container">
+               <div class="row">
+                  <div class="col-sm-8 col-sm-offset-2 text">
+                     <h1><strong>Otaku Organiser</strong> Anime Entry </h1>
+                     <div class="description">
+                        <p>
+                           Enter your anime details
+                        </p>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-sm-6 col-sm-offset-3 form-box">
+                     <div class="form-top">
+                        <div class="form-top-left">
+                           <h3>Add Anime</h3>
+                           <p><strong>Enter anime name, genre, type, number of episodes, rating and members:</strong></p>
+                           <p><strong>Or would you rather batch upload via CSV?</strong></p>
+                           <a href="{% url 'upload_csv' %}"> <button type="button" class = "btn btn-info" ><strong>Upload a CSV file</strong></button></a>
+                        </div>
+                        <div class="form-top-right">
+                           <i class="fa fa-lock"></i>
+                        </div>
+                     </div>
+                     <div class="form-bottom">
+                        <form role="form" action="" enctype="multipart/form-data" class = "post_form" method="POST" class="login-form">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label class="sr-only" for="id_name">Anime Name</label>
+                                <input type="text" name="name" placeholder="Name..." class="form-username form-control" id="id_name">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="id_genre">Genre</label>
+                                <input type="text" name="genre" required = "" placeholder="Genre..." class="form-password form-control" id="id_genre">
+                            </div>
+                            <div class="form-group">
+                                    <label class="sr-only" for="id_anime_type">Anime Type</label>
+                                    <select id="id_anime_type" name="anime_type" class="form-username">
+                                        <option value="Movie">Movie</option>
+                                        <option value="TV" selected="">TV</option>
+                                        <option value="OVA">OVA</option>
+                                        <option value="ONA">ONA</option>
+                                        <option value="Special">Special</option>
+                                    </select>
+                            </div>
+                            <div class="form-group">
+                                    <label class="sr-only" for="id_episodes">Number of Episodes</label>
+                                    <input type="number" name="episodes" required = "" placeholder="Episodes..." class="form-password form-control" id="id_episodes">
+                            </div>
+                            <div class="form-group">
+                                    <label class="sr-only" for="id_rating">Rating</label>
+                                    <input type="number" name="rating"  value="0" min="0" max="10" step="any" required = "" placeholder="Rating..." class="form-password form-control" id="id_rating">
+                            </div>
+                            <div class="form-group">
+                                    <label class="sr-only" for="id_members">Members</label>
+                                    <input type="number" name="members"  required = "" placeholder="Members..." class="form-password form-control" id="id_members">
+                            </div>
+                           <button type="submit" class="btn btn-primary"><strong>Save</strong></button>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- Javascript -->
+      <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script src='{% static "assets/bootstrap/js/bootstrap.min.js" %}'></script>
+      <script src='{% static "assets/js/jquery.backstretch.min.js" %}'></script>
+      <script src='{% static "assets/js/scripts.js" %}'></script>
+   </body>
+</html>
+
